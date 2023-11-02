@@ -9,6 +9,10 @@ export async function fetchCountries(name) {
     }
 
     const data = await response.json();
-    console.log('API Response:', data);
-    return data;
+
+    if (data.length === 1) {
+        return data[0]; // Return the first (and only) item if there's only one country
+    } else {
+        return data; // Return the array if there are multiple countries
+    }
 }
