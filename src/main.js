@@ -9,31 +9,35 @@ const countryInfo = document.getElementById('country-info');
 
 searchBox.addEventListener('input', debounce(onSearch, 300));
 
-function onSearch() {
+ffunction onSearch() {
     const searchQuery = searchBox.value.trim();
-    
+
     if (searchQuery === '') {
         clearResults();
         return;
     }
-console.log(searchQuery);
 
     fetchCountries(searchQuery)
         .then((countries) => {
+            console.log('Countries:', countries);
             if (countries.length === 1) {
                 displayCountryInfo(countries[0]);
             } else if (countries.length >= 2 && countries.length <= 10) {
-                console.log(1, countries);
                 displayCountryList(countries);
-        
             } else if (countries.length > 10) {
-                Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
+                notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
                 clearResults();
             } else {
-                Notiflix.Notify.failure('Oops, there is no country with that name.');
+                notiflix.Notify.failure('Oops, there is no country with that name.');
                 clearResults();
             }
         })
+        .catch((error) => {
+            console.error('Error:', error);
+            notiflix.Notify.failure('Oops, there is no country with that name.');
+            clearResults();
+        });
+}
         .catch((error) => {
             Notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
