@@ -7,7 +7,7 @@ const searchBox = document.getElementById('search-box');
 const countryList = document.getElementById('country-list');
 const countryInfo = document.getElementById('country-info');
 
-searchBox.addEventListener('input', _.debounce(onSearch, 300));
+searchBox.addEventListener('input', .debounce(onSearch, 300));
 
 function onSearch() {
     const searchQuery = searchBox.value.trim();
