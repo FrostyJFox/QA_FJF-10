@@ -25,16 +25,16 @@ function onSearch() {
             } else if (countries.length >= 2 && countries.length <= 10) {
                 displayCountryList(countries);
             } else if (countries.length > 10) {
-                notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
+                Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
                 clearResults();
             } else {
-                notiflix.Notify.failure('Oops, there is no country with that name.');
+                Notiflix.Notify.failure('Oops, there is no country with that name.');
                 clearResults();
             }
         })
         .catch((error) => {
             console.error('Error:', error);
-            notiflix.Notify.failure('Oops, there is no country with that name.');
+            Notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
         })
 
