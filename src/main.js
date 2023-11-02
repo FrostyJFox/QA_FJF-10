@@ -11,7 +11,7 @@ const DEBOUNCE_DELAY = 300;
 
 searchBox.addEventListener('input', debounce(searchCountries, DEBOUNCE_DELAY));
 
-async function searchCountries() {
+async function searchCountries(countries) {
   const query = searchBox.value.trim();
 
   if (query === '') {
