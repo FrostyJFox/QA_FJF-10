@@ -53,13 +53,13 @@ function displayCountryList(countries) {
     countryInfo.innerHTML = '';
     countryList.innerHTML = '';
     countries.forEach((country) => {
-        // Check if 'country.flags' and 'country.flags.svg' exist
-        if (country.flags && country.flags.svg) {
+        // Check if 'country.name' and 'country.name.official' exist
+        if (country.name && country.name.official) {
             const listItem = document.createElement('li');
             listItem.innerHTML = `<img src="${country.flags.svg}" alt="${country.name.official}"> ${country.name.official}`;
             countryList.appendChild(listItem);
         } else {
-            console.error(`Missing 'flags' or 'flags.svg' for country: ${country.name.official}`);
+            console.error(`Missing 'name' or 'name.official' for country`);
         }
     });
 }
