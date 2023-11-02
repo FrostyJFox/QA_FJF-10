@@ -49,18 +49,15 @@ function clearResults() {
     countryInfo.innerHTML = '';
 }
 
-function displayCountryList(countries) {
-    countryInfo.innerHTML = '';
+function displayCountryInfo(country) {
     countryList.innerHTML = '';
-    countries.forEach((country) => {
-        const officialName = country.name ? country.name.official : 'N/A';
-        const capital = country.capital ? country.capital[0] : 'N/A';
-        const language = country.languages && country.languages.swe ? country.languages.swe : 'N/A';
-
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `<img src="${country.flags.svg}" alt="${officialName}"> Official Name: ${officialName}<br> Capital: ${capital}<br> Language: ${language}<br> Population: ${country.population ? country.population.toLocaleString() : 'N/A'}`;
-        countryList.appendChild(listItem);
-    });
+    countryInfo.innerHTML = `
+        <img src="${country.flags.svg}" alt="${country.name.official}">
+        <h2>${country.name.official}</h2>
+        <p>Capital: ${country.capital}</p>
+        <p>Population: ${country.population.toLocaleString()}</p>
+        <p>Languages: ${country.languages.map(lang => lang.name).join(', ')}</p>
+    `;
 }
 
 function displayCountryInfo(country) {
