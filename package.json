@@ -1,24 +1,27 @@
 {
-  "name": "QA_FrostyFox",
+  "name": "QA_FJF-10",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://FrostyJFox.github.io/QA_FrostyFox",
+  "homepage": "https://FrostyJFox.github.io/QA_FJF-10",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /QA_FrostyFox/"
+    "build": "parcel build src/*.html --public-url /QA_FJF-10/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrostyJFox/QA_FrostyFox.git"
+    "url": "git+https://github.com/FrostyJFox/QA_FJF-10.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FrostyJFox/QA_FrostyFox.git"
+    "url": "https://github.com/FrostyJFox/QA_FJF-10.git"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
