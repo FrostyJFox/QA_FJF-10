@@ -36,14 +36,14 @@ function onSearch() {
             console.error('Error:', error);
             notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
-        });
-}
+        })
+
         .catch((error) => {
             Notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
         });
-}
 
+    }
 function clearResults() {
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
