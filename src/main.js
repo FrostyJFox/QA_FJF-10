@@ -19,6 +19,7 @@ function onSearch() {
 
     fetchCountries(searchQuery)
         .then((countries) => {
+          console.log('Countries:', countries);
             if (countries.length === 1) {
                 displayCountryInfo(countries[0]);
             } else if (countries.length >= 2 && countries.length <= 10) {
@@ -32,6 +33,7 @@ function onSearch() {
             }
         })
         .catch((error) => {
+           console.error('Error:', error);
             Notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
         });
