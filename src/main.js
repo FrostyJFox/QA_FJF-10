@@ -9,7 +9,7 @@ const countryInfo = document.getElementById('country-info');
 
 searchBox.addEventListener('input', debounce(onSearch, 300));
 
-ffunction onSearch() {
+function onSearch() {
     const searchQuery = searchBox.value.trim();
 
     if (searchQuery === '') {
