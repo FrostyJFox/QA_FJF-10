@@ -53,16 +53,13 @@ function displayCountryList(countries) {
     countryInfo.innerHTML = '';
     countryList.innerHTML = '';
     countries.forEach((country) => {
-        const capital = country.capital[0];
-        const language = country.languages.swe; // Assuming 'swe' is the language code for Swedish
+        const officialName = country.name ? country.name.official : 'N/A';
+        const capital = country.capital ? country.capital[0] : 'N/A';
+        const language = country.languages && country.languages.swe ? country.languages.swe : 'N/A';
 
-        if (capital && language) {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `<img src="${country.flags.svg}" alt="${country.name.official}"> Official Name: ${country.name.official}<br> Capital: ${capital}<br> Language: ${language}<br> Population: ${country.population.toLocaleString()}`;
-            countryList.appendChild(listItem);
-        } else {
-            console.error(`Missing 'capital', 'languages', or other necessary properties for country:`, country);
-        }
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<img src="${country.flags.svg}" alt="${officialName}"> Official Name: ${officialName}<br> Capital: ${capital}<br> Language: ${language}<br> Population: ${country.population ? country.population.toLocaleString() : 'N/A'}`;
+        countryList.appendChild(listItem);
     });
 }
 
