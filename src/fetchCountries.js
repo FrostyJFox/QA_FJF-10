@@ -1,5 +1,5 @@
 export async function fetchCountries(name) {
-    const baseUrl = 'https://restcountries.com/v3.1/all';
+    const baseUrl = 'https://restcountries.com/v3.1/all?fields=name,flags';
     const response = await fetch(`${baseUrl}${name}?fields=name,official,capital,population,flags.svg,languages`);
     
     if (!response.ok) {
