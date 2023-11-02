@@ -53,13 +53,15 @@ function displayCountryList(countries) {
     countryInfo.innerHTML = '';
     countryList.innerHTML = '';
     countries.forEach((country) => {
-        // Check if 'country.name' and 'country.name.official' exist
-        if (country.name && country.name.official) {
+        const capital = country.capital[0];
+        const language = country.languages.swe; // Assuming 'swe' is the language code for Swedish
+
+        if (capital && language) {
             const listItem = document.createElement('li');
-            listItem.innerHTML = `<img src="${country.flags.svg}" alt="${country.name.official}"> ${country.name.official}`;
+            listItem.innerHTML = `<img src="${country.flags.svg}" alt="${country.name.official}"> Official Name: ${country.name.official}<br> Capital: ${capital}<br> Language: ${language}<br> Population: ${country.population.toLocaleString()}`;
             countryList.appendChild(listItem);
         } else {
-            console.error(`Missing 'name' or 'name.official' for country`);
+            console.error(`Missing 'capital', 'languages', or other necessary properties for country:`, country);
         }
     });
 }
