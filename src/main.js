@@ -1,17 +1,16 @@
 // main.js
 import { fetchCountries } from './fetchCountries.js';
 import Notiflix from 'notiflix';
-import debounce from 'lodash.debounce'
+import debounce from 'lodash.debounce';
 
 const searchBox = document.getElementById('search-box');
 const countryList = document.getElementById('country-list');
 const countryInfo = document.getElementById('country-info');
 
-searchBox.addEventListener('input', debounce(onSearch, 300));
 
 function onSearch() {
     const searchQuery = searchBox.value.trim();
-
+    
     if (searchQuery === '') {
         clearResults();
         return;
@@ -19,7 +18,7 @@ function onSearch() {
 
     fetchCountries(searchQuery)
         .then((countries) => {
-            console.log('Countries:', countries);
+          console.log('Countries:', countries);
             if (countries.length === 1) {
                 displayCountryInfo(countries[0]);
             } else if (countries.length >= 2 && countries.length <= 10) {
@@ -33,17 +32,13 @@ function onSearch() {
             }
         })
         .catch((error) => {
-            console.error('Error:', error);
-            Notiflix.Notify.failure('Oops, there is no country with that name.');
-            clearResults();
-        })
-
-        .catch((error) => {
+           console.log('Error:', error);
             Notiflix.Notify.failure('Oops, there is no country with that name.');
             clearResults();
         });
+}
+searchBox.addEventListener('input', debounce(onSearch, 300));
 
-    }
 function clearResults() {
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
@@ -66,6 +61,6 @@ function displayCountryInfo(country) {
         <h2>${country.name.official}</h2>
         <p>Capital: ${country.capital}</p>
         <p>Population: ${country.population.toLocaleString()}</p>
-        <p>Languages: ${country.languages.map(lang => lang.name).join(', ')}</p>
+        <p>Languages: ${Object.values(country.languages).join(', ')}</p>
     `;
 }
