@@ -1,7 +1,7 @@
 // fetchCountries.js
 export async function fetchCountries(name) {
-    const baseUrl = 'https://restcountries.com/#api-endpoints-v3-name';
-    const response = await fetch(`${baseUrl}${name}?fields=name,official,capital,population,flags.svg,languages`);
+    const baseUrl = 'https://restcountries.com/v3.1/name/';
+    const response = await fetch(`${baseUrl}${name}?fields=name,official,capital,population,flags,languages`);
     
     if (!response.ok) {
         throw new Error('Country not found');
