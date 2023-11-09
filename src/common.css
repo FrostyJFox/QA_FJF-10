@@ -13,6 +13,7 @@
     display: block;
     height: 80px;
     width: 70px;
+    border: 10px solid #000000;
   }
   
   .centered {
