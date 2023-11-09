@@ -57,7 +57,7 @@ function displayCountryList(countries) {
 function displayCountryInfo(country) {
     countryList.innerHTML = '';
     countryInfo.innerHTML = `
-        <img src="${country.flags.svg}" alt="${country.name.official}">
+        <img src="${country.flags.svg}" alt="${country.name.official}" class="img">
         <h2>${country.name.official}</h2>
         <p>Capital: ${country.capital}</p>
         <p>Population: ${country.population.toLocaleString()}</p>
