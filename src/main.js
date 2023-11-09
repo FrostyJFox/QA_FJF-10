@@ -61,6 +61,6 @@ function displayCountryInfo(country) {
         <h2>${country.name.official}</h2>
         <p>Capital: ${country.capital}</p>
         <p>Population: ${country.population.toLocaleString()}</p>
-        <p>Languages: ${country.languages.map(lang => lang.name).join(', ')}</p>
+        <p>Languages: ${Object.values(country.languages).join(', ')}</p>
     `;
 }
